@@ -15,6 +15,20 @@
     nixosModules = import ./modules;
     
     nixosConfigurations = {
+      fuki = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/fuki/configuration.nix
+          inputs.home-manager.nixosModules.default
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+            home-manager.sharedModules = [
+              inputs.nixcord.homeManagerModules.nixcord
+	    ];
+	  }
+        ];
+      };
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -26,28 +40,6 @@
           }
           ./hosts/wsl/configuration.nix
           inputs.home-manager.nixosModules.default
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-            home-manager.sharedModules = [
-              inputs.nixcord.homeManagerModules.nixcord
-	    ];
-	  }
-        ];
-      };
-
-      laptop1 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/laptop1/configuration.nix
-          inputs.home-manager.nixosModules.default
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-            home-manager.sharedModules = [
-              inputs.nixcord.homeManagerModules.nixcord
-	    ];
-	  }
         ];
       };
     };  
