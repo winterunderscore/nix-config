@@ -19,6 +19,7 @@
       modules.anki
       modules.fcitx5
       modules.bitwarden
+      modules.flatpak
       
       ./hardware-configuration.nix
     ];

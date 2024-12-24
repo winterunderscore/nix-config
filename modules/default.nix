@@ -8,4 +8,5 @@
   anki = import ./anki.nix;
   fcitx5 = import ./fcitx5.nix;
   bitwarden = import ./bitwarden.nix;
+  flatpak = import ./flatpak.nix;
 }
