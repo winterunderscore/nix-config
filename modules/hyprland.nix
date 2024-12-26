@@ -56,5 +56,6 @@
 	];
       };
     };
+    style = ./waybar/styles.css;
   };
 }

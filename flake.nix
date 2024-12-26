@@ -11,12 +11,20 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... }@inputs: {
+  outputs = { 
+    self, 
+    nixpkgs, 
+    home-manager, 
+    nixos-wsl, 
+    ... 
+  } @ inputs: let 
+    specialArgs = { inherit inputs; };
+  in {
+
     nixosModules = import ./modules;
-    
     nixosConfigurations = {
       fuki = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        inherit specialArgs;
         modules = [
           ./hosts/fuki/configuration.nix
           inputs.home-manager.nixosModules.default
@@ -27,19 +35,6 @@
               inputs.nixcord.homeManagerModules.nixcord
 	    ];
 	  }
-        ];
-      };
-      wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          nixos-wsl.nixosModules.default
-          {
-            system.stateVersion = "24.05";
-            wsl.enable = true;
-            wsl.defaultUser = "winter";
-          }
-          ./hosts/wsl/configuration.nix
-          inputs.home-manager.nixosModules.default
         ];
       };
     };  
