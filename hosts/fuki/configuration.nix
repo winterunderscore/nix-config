@@ -20,6 +20,7 @@
       modules.fcitx5
       modules.bitwarden
       modules.flatpak
+      modules.fastfetch
       
       ./hardware-configuration.nix
     ];

@@ -9,4 +9,5 @@
   fcitx5 = import ./fcitx5.nix;
   bitwarden = import ./bitwarden.nix;
   flatpak = import ./flatpak.nix;
+  fastfetch = import ./fastfetch.nix;
 }

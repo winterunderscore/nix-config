@@ -9,7 +9,7 @@
       transparent = true;
       frameless = true;
 
-      enabledThemes = [ "system24-macchiato.css" ];
+      enabledThemes = [ "macchiato.theme.css" ];
 
       plugins = {
         messageLogger = {

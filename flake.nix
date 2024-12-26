@@ -18,7 +18,8 @@
     nixos-wsl, 
     ... 
   } @ inputs: let 
-    specialArgs = { inherit inputs; };
+    strings = import ./strings.nix;
+    specialArgs = { inherit inputs strings; };
   in {
 
     nixosModules = import ./modules;
