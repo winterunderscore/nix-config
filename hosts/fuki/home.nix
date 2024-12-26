@@ -8,6 +8,8 @@
       ../../hm/nixcord.nix
   ];
 
+  systemd.user.startServices = "sd-switch";
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "winter";
@@ -75,7 +77,7 @@
   #  /etc/profiles/per-user/winter/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
