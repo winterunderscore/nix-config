@@ -21,7 +21,11 @@
     gh
     
     tree
+    bat
+    fzf
+    eza
     ripgrep
     hyperfine
+    tokei
   ];
 }

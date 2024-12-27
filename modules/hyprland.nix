@@ -38,6 +38,15 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  home-manager.users.winter.home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    package = pkgs.oreo-cursors-plus;
+    name = "oreo_spark_violet_bordered_cursors";
+    size = 20;
+  };
+  home-manager.users.winter.home.sessionVariables.GSK_RENDERER = "gl";
+
   home-manager.users.winter.services.hyprpaper = {
     enable = true;
     settings = {
@@ -53,6 +62,7 @@
     };
   };
 
+  programs.hyprland.enable = true;
   home-manager.users.winter.wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -71,6 +81,7 @@
 	$menu = rofi -show drun
       '';
       exec = ''
+	exec-once = hyprsunset
 	exec-once = hyprpaper
         exec-once = waybar
       '';
@@ -292,5 +303,6 @@
     rofi-wayland
     hyprshot
     hyprpaper
+    hyprsunset
   ]; 
 }
