@@ -23,6 +23,7 @@
       modules.bitwarden
       modules.flatpak
       modules.fastfetch
+      modules.mpv
       
       ./hardware-configuration.nix
     ];
