@@ -15,4 +15,13 @@
   users.defaultUserShell = pkgs.fish;
   users.users.winter.shell = pkgs.fish;
   programs.fish.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    git
+    gh
+    
+    tree
+    ripgrep
+    hyperfine
+  ];
 }

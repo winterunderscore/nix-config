@@ -4,7 +4,6 @@
   # the way its ../../../../ is ugly, maybe fix that soon.
 
   imports = [
-      ../../hm/hyprland.nix
       ../../hm/nixcord.nix
   ];
 

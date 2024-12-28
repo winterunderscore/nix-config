@@ -1,16 +1,5 @@
 { lib, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
-    git
-    gh
-
-    tree
-    ripgrep
-    hyperfine
-
-    rofi-wayland
-    hyprshot
-    hyprpaper
-  ];
+  environment.systemPackages = with pkgs; [];
 
   fonts.packages = with pkgs; [
     noto-fonts
