@@ -54,9 +54,9 @@ in {
         }
       ];
       
-      logo = {
-        source = "${icon}";
-      };
+#      logo = {
+#        source = "${icon}";
+#      };
     };
   };
 }
