@@ -94,3 +94,8 @@ tooltip {
 #tray menu separator {
     min-height: 10px
 }
+
+#pulseaudio-slider trough, #backlight-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+}

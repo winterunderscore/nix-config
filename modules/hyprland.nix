@@ -1,7 +1,21 @@
 { pkgs, ... }: {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+
+  services.displayManager.ly.enable = true;
+  services.displayManager.sessionPackages = [
+    (
+      (pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
+        [Desktop Entry]
+        Name=hyprland
+        Comment=InsertSomeCommentHere
+        Exec=${pkgs.hyprland}/bin/Hyprland
+        Type=Application
+      '')
+      .overrideAttrs
+      (_: {
+        passthru.providedSessions = ["hyprland"];
+      })
+    )
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -10,7 +24,6 @@
   };
 
   programs.hyprland.enable = true;
-  programs.waybar.enable = true;
 
   programs.thunar = {
     enable = true;
@@ -39,7 +52,6 @@
 	height = 32;
 	modules-left = [
           "hyprland/workspaces"
-	  "hyprland/language"
 	];
 	modules-center = [
           "hyprland/window"
@@ -47,13 +59,15 @@
 	];
 	modules-right = [
           "tray"
-	  "cpu"
-	  "temperature"
-	  "memory"
-	  "disk"
+	  "pulseaudio/slider"
 	  "battery"
 	  "clock"
 	];
+	"pulseaudio/slider" = {
+          min = 0;
+	  max = 100;
+	  orientation = "horizontal";
+	};
       };
     };
     style = ./waybar/styles.css;

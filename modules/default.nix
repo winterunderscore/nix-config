@@ -10,4 +10,5 @@
   bitwarden = import ./bitwarden.nix;
   flatpak = import ./flatpak.nix;
   fastfetch = import ./fastfetch.nix;
+  cli = import ./cli.nix;
 }

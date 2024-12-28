@@ -13,6 +13,8 @@
       modules.kitty
       modules.neovim
       modules.tmux
+      modules.cli
+
       modules.yazi
       modules.obsidian
       modules.hyprland
@@ -73,6 +75,9 @@
     #media-session.enable = true;
   };
 
+  # Install firefox.
+  programs.firefox.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.winter = {
     isNormalUser = true;
@@ -80,13 +85,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "winter";
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
