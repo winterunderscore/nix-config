@@ -8,6 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixcord.url = "github:kaylorben/nixcord";
   };
 
@@ -34,6 +39,7 @@
 	    home-manager.useUserPackages = true;
             home-manager.sharedModules = [
               inputs.nixcord.homeManagerModules.nixcord
+	      inputs.nixvim.homeManagerModules.nixvim
 	    ];
 	  }
         ];
