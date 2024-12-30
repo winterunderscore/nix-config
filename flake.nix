@@ -14,6 +14,7 @@
     };
 
     nixcord.url = "github:kaylorben/nixcord";
+    hosts.url = "github:StevenBlack/hosts";
   };
 
   outputs = { 
@@ -21,6 +22,7 @@
     nixpkgs, 
     home-manager, 
     nixos-wsl, 
+    hosts,
     ... 
   } @ inputs: let 
     strings = import ./strings.nix;
@@ -42,6 +44,10 @@
 	      inputs.nixvim.homeManagerModules.nixvim
 	    ];
 	  }
+          hosts.nixosModule
+          {
+            networking.stevenBlackHosts.enable = true;
+          }
         ];
       };
     };  
