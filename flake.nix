@@ -47,6 +47,10 @@
           hosts.nixosModule
           {
             networking.stevenBlackHosts.enable = true;
+            networking.stevenBlackHosts = {
+              blockFakenews = true;
+              blockGambling = true;
+            };
           }
         ];
       };
