@@ -1,12 +1,6 @@
 { inputs, config, pkgs, ... }:
 
 {
-  # the way its ../../../../ is ugly, maybe fix that soon.
-
-  imports = [
-      ../../hm/nixcord.nix
-  ];
-
   systemd.user.startServices = "sd-switch";
 
   # Home Manager needs a bit of information about you and the paths it should

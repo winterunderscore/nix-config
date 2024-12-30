@@ -26,6 +26,7 @@
       modules.mpv
       modules.remote-desktop
       modules.localsend
+      modules.nixcord
       
       ./hardware-configuration.nix
     ];

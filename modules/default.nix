@@ -14,4 +14,5 @@
   mpv = import ./mpv.nix;
   remote-desktop = import ./remote-desktop.nix;
   localsend = import ./localsend.nix;
+  nixcord = import ./nixcord.nix;
 }

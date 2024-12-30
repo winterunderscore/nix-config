@@ -1,5 +1,10 @@
-{ pkgs, ... }: {
-  programs.nixcord = {
+{ pkgs, ... }: let 
+  theme = pkgs.fetchurl {
+    url = "https://catppuccin.github.io/discord/dist/catppuccin-macchiato.theme.css";
+    sha256 = "sha256-TuUkPL1F0p40K9+8o7YQqZ06do9c386gjj/UbOaDOKI=";
+  };
+in {
+  home-manager.users.winter.programs.nixcord = {
     enable = true;
     discord.enable = false;
     vesktop.enable = true;
@@ -9,7 +14,7 @@
       transparent = true;
       frameless = true;
 
-      enabledThemes = [ "macchiato.theme.css" ];
+      enabledThemes = [ "theme.css" ];
 
       plugins = {
         messageLogger = {
@@ -25,5 +30,5 @@
     };
   };
 
-  xdg.configFile."vesktop/themes".source = "${./nixcord/themes}";
+  home-manager.users.winter.xdg.configFile."vesktop/themes/theme.css".source = theme;
 }
