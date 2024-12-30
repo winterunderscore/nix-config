@@ -24,6 +24,8 @@
       modules.flatpak
       modules.fastfetch
       modules.mpv
+      modules.remote-desktop
+      modules.localsend
       
       ./hardware-configuration.nix
     ];

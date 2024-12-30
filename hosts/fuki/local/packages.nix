@@ -1,5 +1,7 @@
 { lib, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    scrcpy
+  ];
 
   fonts.packages = with pkgs; [
     noto-fonts

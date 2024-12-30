@@ -244,9 +244,12 @@
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = $mainMod, mouse:272, movewindow
         bindm = $mainMod, mouse:273, resizewindow
-        
+
+	# audio
+	bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+	bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
         # hyprshot
-        
         bind = $mainMod, PRINT, exec, hyprshot -m window --clipboard-only --freeze
         bind = , PRINT, exec, hyprshot -m output --clipboard-only --freeze
         bind = $shiftMod, PRINT, exec, hyprshot -m region --clipboard-only --freeze

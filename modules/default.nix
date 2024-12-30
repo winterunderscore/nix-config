@@ -12,4 +12,6 @@
   fastfetch = import ./fastfetch.nix;
   cli = import ./cli.nix;
   mpv = import ./mpv.nix;
+  remote-desktop = import ./remote-desktop.nix;
+  localsend = import ./localsend.nix;
 }
