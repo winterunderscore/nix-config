@@ -1,6 +1,7 @@
 { lib, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     scrcpy
+    wireshark
   ];
 
   fonts.packages = with pkgs; [

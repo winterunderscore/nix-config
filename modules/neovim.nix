@@ -22,7 +22,10 @@
       plugins = {
         nix.enable = true;
 	treesitter.enable = true;
+        telescope.enable = true;
 	presence-nvim.enable = true;
+        lualine.enable = true;
+        nvim-surround.enable = true;
       };
 
       colorschemes.catppuccin = {

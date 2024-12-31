@@ -34,8 +34,22 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    config.common.default = "*";
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
+  };
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
   };
 
   home-manager.users.winter.home.pointerCursor = {
@@ -46,6 +60,10 @@
     size = 20;
   };
   home-manager.users.winter.home.sessionVariables.GSK_RENDERER = "gl";
+
+  home-manager.users.winter.services.dunst = {
+    enable = true;
+  };
 
   home-manager.users.winter.services.hyprpaper = {
     enable = true;
@@ -88,6 +106,9 @@
       env = ''
         env = XCURSOR_SIZE,24
         env = HYPRCURSOR_SIZE,24
+        env = XDG_CURRENT_DESKTOP,Hyprland
+        env = XDG_SESSION_DESKTOP,Hyprland
+        env = XDG_SESSION_TYPE,wayland
       '';
       windowRules = ''
         windowrulev2 = suppressevent maximize, class:.*
@@ -181,7 +202,9 @@
         misc {
             force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
             disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
+            disable_hyprland_qtutils_check = true
         }
+
       '';
 
       input = ''
