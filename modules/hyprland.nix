@@ -61,7 +61,7 @@
   };
   home-manager.users.winter.home.sessionVariables.GSK_RENDERER = "gl";
 
-  home-manager.users.winter.services.dunst = {
+  home-manager.users.winter.services.mako = {
     enable = true;
   };
 
@@ -330,5 +330,7 @@
     hyprshot
     hyprpaper
     hyprsunset
+
+    mako
   ]; 
 }

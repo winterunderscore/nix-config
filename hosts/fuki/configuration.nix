@@ -27,6 +27,7 @@
       modules.remote-desktop
       modules.localsend
       modules.nixcord
+      modules.tabletdriver
       
       ./hardware-configuration.nix
     ];

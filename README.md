@@ -1,4 +1,4 @@
-# nix-dotfiles
+# nix-config
 
 my messy config files
 
