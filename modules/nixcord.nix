@@ -28,7 +28,15 @@ in {
 	};
       };
     };
-  };
+    userPlugins = {
+      messageLoggerEnhanced = "github:Syncxv/vc-message-logger-enhanced/199b24e32503c7d3288c5237ed0786d6ce10c855";
+    };
 
+    extraConfig = {
+      plugins = {
+        messageLoggerEnhanced.enable = true;
+      };
+    };
+  };
   home-manager.users.winter.xdg.configFile."vesktop/themes/theme.css".source = theme;
 }
