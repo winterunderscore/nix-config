@@ -1,7 +1,7 @@
 { pkgs, ... }: let 
   theme = pkgs.fetchurl {
-    url = "https://catppuccin.github.io/discord/dist/catppuccin-macchiato.theme.css";
-    sha256 = "sha256-TuUkPL1F0p40K9+8o7YQqZ06do9c386gjj/UbOaDOKI=";
+    url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css";
+    sha256 = "sha256-0TnWkE/ndOYufghl0+aiMy68twozVoAaTbOF9dD6224=";
   };
 in {
   home-manager.users.winter.programs.nixcord = {
