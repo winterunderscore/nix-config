@@ -10,6 +10,13 @@
   home-manager.users.winter.programs.fish = {
     package = pkgs.fish;
     enable = true;
+    interactiveShellInit = ''
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      set fish_greeting
+      if test "$SHLVL" -lt 3
+        ufetch
+      end
+    '';
   };
 
   users.defaultUserShell = pkgs.fish;
@@ -27,5 +34,9 @@
     ripgrep
     hyperfine
     tokei
-  ];
+
+    any-nix-shell
+  ] ++ (with pkgs.fishPlugins; [
+    fzf-fish
+  ]);
 }

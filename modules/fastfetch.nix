@@ -1,6 +1,10 @@
 { pkgs, inputs, strings, ... }: let
   icon = strings.logotxt;
 in {
+  environment.systemPackages = with pkgs; [
+    ufetch
+  ];
+
   home-manager.users.winter.programs.fastfetch = {
     enable = true;
     package = pkgs.fastfetch;

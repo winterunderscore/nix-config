@@ -12,7 +12,7 @@
 
       modules.kitty
       modules.neovim
-      modules.tmux
+      modules.zellij
       modules.cli
 
       modules.yazi
