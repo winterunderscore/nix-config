@@ -102,6 +102,10 @@
 	exec-once = hyprsunset
 	exec-once = hyprpaper
         exec-once = waybar
+
+        exec-once = [workspace 1 silent] obsidian
+        exec-once = [workspace 2 silent] firefox
+        exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
       '';
       env = ''
         env = XCURSOR_SIZE,24
