@@ -314,52 +314,103 @@
 	  "privacy"
 	];
 	modules-right = [
-          "tray"
-	  "pulseaudio/slider"
+	  "pulseaudio"
+          "backlight"
 	  "battery"
 	  "clock"
+          "tray"
 	];
-	"pulseaudio/slider" = {
-          min = 0;
-	  max = 100;
-	  orientation = "horizontal";
-	};
+
+        "clock" = {
+          format = " {:%H:%M・%Y年%m月%d日}";
+        };
+        
+        "pulseaudio" = {
+          format = "{icon} {volume}%";
+          format-muted = "";
+          format-icons = {
+            default = [ "" "" ];
+          };
+        };
+        "backlight" = {
+          format = "{icon} {percent}%";
+          format-icons = [ "" "" ];
+        };
       };
     };
-    style = builtins.toFile "styles.css" ''
-      * {
-        border: none;
-        border-radius: 5px;
-        font-family: "JetBrainsMono Nerd Font";
-        font-weight: bold;
-        font-size: 11px;
-        min-height: 11px;
-      }
-      window#waybar {
-        background: transparent;
-      }
-      tooltip {
-        background: #865A7B;
-        color: #865A7B;
-        border-radius: 7px;
-        border-width: 3px;
-      }
-      #privacy,
-      #window,
-      #taskbar,
-      #tray,
-      #clock,
-      #user,
-      #temperature,
-      #pulseaudio,
-      #memory,
-      #disk,
-      #cpu,
-      #battery,
-      #language,
-      #workspaces button {
+    style = let
+      colorscheme = ''
+        /*
+        *
+        * Catppuccin Mocha palette
+        * Maintainer: rubyowo
+        *
+        */
+
+        @define-color base   #1e1e2e;
+        @define-color mantle #181825;
+        @define-color crust  #11111b;
+
+        @define-color text     #cdd6f4;
+        @define-color subtext0 #a6adc8;
+        @define-color subtext1 #bac2de;
+
+        @define-color surface0 #313244;
+        @define-color surface1 #45475a;
+        @define-color surface2 #585b70;
+
+        @define-color overlay0 #6c7086;
+        @define-color overlay1 #7f849c;
+        @define-color overlay2 #9399b2;
+
+        @define-color blue      #89b4fa;
+        @define-color lavender  #b4befe;
+        @define-color sapphire  #74c7ec;
+        @define-color sky       #89dceb;
+        @define-color teal      #94e2d5;
+        @define-color green     #a6e3a1;
+        @define-color yellow    #f9e2af;
+        @define-color peach     #fab387;
+        @define-color maroon    #eba0ac;
+        @define-color red       #f38ba8;
+        @define-color mauve     #cba6f7;
+        @define-color pink      #f5c2e7;
+        @define-color flamingo  #f2cdcd;
+        @define-color rosewater #f5e0dc;
+      '';
+      styles = ''
+        /*
+        * taken and mixed together from: 
+        * - https://github.com/rubyowo/dotfiles/blob/f925cf8e3461420a21b6dc8b8ad1190107b0cc56/config/waybar/style.css &
+        * - https://github.com/hatosu/nix-config/blob/main/module/hyprland.nix
+        * thanks twin (rubyowo) and hatosu ^^
+        */
+
+        * {
+          font-family: FantasqueSansMono Nerd Font;
+          border-radius: 5px;
+          font-size: 11px;
+          font-weight: bold;
+          min-height: 0;
+        }
+
+        #waybar {
+          background: transparent;
+          color: @text;
+          margin: 5px 5px;
+        }
+
+        #workspaces {
+          border-radius: 7px;
+          margin: 5px;
+          background-color: @surface0;
+          margin-left: 0rem;
+        }
+
+        #workspaces button {
+          color: @lavender;
           box-shadow: none;
-         text-shadow: none;
+          text-shadow: none;
           padding: 0px;
           border-radius: 9px;
           margin-top: 3px;
@@ -368,67 +419,73 @@
           padding-left: 3px;
           padding-right: 3px;
           margin-right: 0px;
-          color: #cdd6f4;
           animation: ws_normal 20s ease-in-out 1;
-      }
-      #workspaces button.active {
-          background: #a6adc8;
-          color: #313244;
+        }
+
+        #workspaces button.active {
+          background-color: @overlay0;
+          color: @sky;
           margin-left: 3px;
           padding-left: 12px;
           padding-right: 12px;
           margin-right: 3px;
           animation: ws_active 20s ease-in-out 1;
           transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
-      }
-      #workspaces button:hover {
-          background: #f5c2e7;
-          color: #313244;
+        }
+
+        #workspaces button:hover {
+          background-color: @overlay1;
+          color: @sapphire;
+          border-radius: 9px;
           animation: ws_hover 20s ease-in-out 1;
           transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-      }
-      #taskbar button {
-          box-shadow: none;
-         text-shadow: none;
-          padding: 0px;
-          border-radius: 9px;
-          margin-top: 3px;
-          margin-bottom: 3px;
-          margin-left: 0px;
-          padding-left: 3px;
-          padding-right: 3px;
-          margin-right: 0px;
-          color: @wb-color;
-          animation: tb_normal 20s ease-in-out 1;
-      }
-      #taskbar button.active {
-          background: #a6adc8;
-          color: @wb-act-color;
-          margin-left: 3px;
-          padding-left: 12px;
-          padding-right: 12px;
-          margin-right: 3px;
-          animation: tb_active 20s ease-in-out 1;
-          transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
-      }
-      #taskbar button:hover {
-          background: #f5c2e7;
-          color: @wb-hvr-color;
-          animation: tb_hover 20s ease-in-out 1;
-          transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-      }
-      #tray menu * {
-          min-height: 16px
-      }
-      #tray menu separator {
-          min-height: 10px
-      }
+        }
 
-      #pulseaudio-slider trough, #backlight-slider trough {
-          min-height: 10px;
-          min-width: 80px;
-      }
+        #tray,
+        #backlight,
+        #clock,
+        #battery,
+        #pulseaudio {
+          background-color: @surface0;
+          border-radius: 0px 0px 0px 0px;
+          margin-left: 0px;
+          padding-left: 6px;
+          padding-right: 6px;
+          margin-right: 0px;
+        }
+
+        #tray {
+          border-radius: 5px;
+          margin-left: 3px;
+          margin-right: 3px;
+        }
+
+        #pulseaudio {
+          border-radius: 5px 0px 0px 5px;
+          color: @maroon;
+          margin-left: 3px;
+        }
+
+        #clock {
+          border-radius: 0px 5px 5px 0px;
+          color: @blue;
+          margin-right: 3px;
+        }
+
+        #battery {
+          color: @green;
+        }
+
+        #backlight {
+          color: @yellow;
+        }
+
+      '';
+    in builtins.toFile "styles.css" ''
+      ${colorscheme}
+      ${styles}
     '';
+    
   };
 
   environment.systemPackages = with pkgs; [
@@ -436,6 +493,7 @@
     hyprshot
     hyprpaper
     hyprsunset
+    wl-clipboard
 
     mako
   ]; 

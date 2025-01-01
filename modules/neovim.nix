@@ -19,6 +19,11 @@
 	byteCompileLua.enable = true;
       };
 
+      clipboard = {
+        register = "unnamedplus";
+        providers.wl-copy.enable = true;
+      };
+
       plugins = {
         nix.enable = true;
 	treesitter.enable = true;
