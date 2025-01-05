@@ -2,7 +2,12 @@
   environment.systemPackages = with pkgs; [
     scrcpy
     wireshark
+    autokey
   ];
+
+  programs.ydotool = {
+    enable = true;
+  };
 
   fonts.packages = with pkgs; [
     noto-fonts

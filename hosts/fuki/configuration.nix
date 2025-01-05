@@ -75,7 +75,7 @@
   users.users.winter = {
     isNormalUser = true;
     description = "winter";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "ydotool" ];
     packages = with pkgs; [];
   };
 
