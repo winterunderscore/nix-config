@@ -118,8 +118,8 @@
         windowrulev2 = suppressevent maximize, class:.*
         windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
         
-        windowrulev2 = opacity 0.90 0.90 floating:0
-        windowrulev2 = opacity 0.90 0.90 floating:1
+        windowrulev2 = opacity 0.95 0.95 floating:0
+        windowrulev2 = opacity 0.95 0.95 floating:1
       '';
       visual = ''
         general {
@@ -206,14 +206,13 @@
         misc {
             force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
             disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
-            disable_hyprland_qtutils_check = true
         }
 
       '';
 
       input = ''
         windowrule = pseudo, fcitx
-        exec-once=fcitx5 -d -r
+        exec-once=fcitx5 -d -r --enable-all
         exec-once=fcitx5-remote -r
       '';
 
@@ -324,7 +323,6 @@
         "clock" = {
           format = " {:%H:%M・%Y年%m月%d日}";
         };
-        
         "pulseaudio" = {
           format = "{icon} {volume}%";
           format-muted = "";
@@ -335,6 +333,14 @@
         "backlight" = {
           format = "{icon} {percent}%";
           format-icons = [ "" "" ];
+        };
+        "battery" = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-icons = [ "" "" "" "" "" ];
         };
       };
     };
@@ -387,11 +393,11 @@
         */
 
         * {
-          font-family: FantasqueSansMono Nerd Font;
-          border-radius: 5px;
+          font-family: "JetBrainsMono Nerd Font";
           font-size: 11px;
+          border-radius: 5px;
           font-weight: bold;
-          min-height: 0;
+          min-height: 11px;
         }
 
         #waybar {
@@ -464,12 +470,14 @@
           border-radius: 5px 0px 0px 5px;
           color: @maroon;
           margin-left: 3px;
+          padding-left: 12px;
         }
 
         #clock {
           border-radius: 0px 5px 5px 0px;
           color: @blue;
           margin-right: 3px;
+          padding-right: 12px;
         }
 
         #battery {
@@ -493,6 +501,7 @@
     hyprshot
     hyprpaper
     hyprsunset
+    hyprutils
     wl-clipboard
 
     mako

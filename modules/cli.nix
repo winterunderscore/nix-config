@@ -23,14 +23,31 @@
   users.users.winter.shell = pkgs.fish;
   programs.fish.enable = true;
 
+  home-manager.users.winter.programs = {
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    bat = {
+      enable = true;
+    };
+    eza = {
+      enable = true;
+      enableFishIntegration = true;
+      colors = "always";
+    };
+    thefuck = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     git
     gh
     
     tree
-    bat
     fzf
-    eza
     ripgrep
     hyperfine
     tokei
