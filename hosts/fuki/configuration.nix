@@ -8,6 +8,7 @@
   imports = let
     modules = inputs.self.nixosModules;
   in [
+      # ./local/nvidia.nix # hyprland isn't liking it right now
       ./local/packages.nix
 
       modules.kitty
