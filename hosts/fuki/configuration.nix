@@ -62,25 +62,17 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.winter = {
     isNormalUser = true;
     description = "winter";
     extraGroups = [ "networkmanager" "wheel" "ydotool" ];
     packages = with pkgs; [];
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
 
   nix.settings.substituters = ["https://hyprland.cachix.org"];
   nix.settings.trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
@@ -93,25 +85,6 @@
   users = {
     "winter" = import ./home.nix;
   }; };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

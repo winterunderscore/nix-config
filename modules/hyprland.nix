@@ -103,7 +103,7 @@
 	exec-once = hyprpaper
         exec-once = waybar
 
-        exec-once = [workspace 1 silent] obsidian
+        exec-once = [workspace special:obsidian silent] obsidian
         exec-once = [workspace 2 silent] firefox
         exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
       '';
@@ -118,8 +118,7 @@
         windowrulev2 = suppressevent maximize, class:.*
         windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
         
-        windowrulev2 = opacity 0.95 0.95 floating:0
-        windowrulev2 = opacity 0.95 0.95 floating:1
+        windowrulev2 = workspace 3 silent, class:(vesktop)
       '';
       visual = ''
         general {
@@ -260,8 +259,9 @@
         bind = $mainMod SHIFT, 0, movetoworkspace, 10
         
         # Example special workspace (scratchpad)
-        bind = $mainMod, S, togglespecialworkspace, magic
-        bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+        bind = $mainMod, S, togglespecialworkspace, obsidian
+        bind = $mainMod, A, togglespecialworkspace, magic
+        bind = $mainMod SHIFT, A, movetoworkspace, special:magic
         
         # Scroll through existing workspaces with mainMod + scroll
         bind = $mainMod, mouse_down, workspace, e+1
