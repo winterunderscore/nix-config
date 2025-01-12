@@ -114,7 +114,7 @@
         env = XDG_SESSION_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
       '';
-      windowRules = ''
+      window_rules = ''
         windowrulev2 = suppressevent maximize, class:.*
         windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
         
@@ -286,7 +286,7 @@
       ${display}
       ${program_conf}
       ${exec}
-      ${windowRules}
+      ${window_rules}
       ${visual}
       ${other}
       ${input}
