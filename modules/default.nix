@@ -17,4 +17,5 @@
   nixcord = import ./nixcord.nix;
   tabletdriver = import ./tabletdriver.nix;
   zellij = import ./zellij.nix;
+  flameshot = import ./flameshot.nix;
 }

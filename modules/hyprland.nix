@@ -104,8 +104,8 @@
         exec-once = waybar
 
         exec-once = [workspace special:obsidian silent] obsidian
+        exec-once = [workspace special:discord silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
         exec-once = [workspace 2 silent] firefox
-        exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
       '';
       env = ''
         env = XCURSOR_SIZE,24
@@ -118,7 +118,7 @@
         windowrulev2 = suppressevent maximize, class:.*
         windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
         
-        windowrulev2 = workspace 3 silent, class:(vesktop)
+        windowrulev2 = workspace special:discord silent, class:(vesktop)
       '';
       visual = ''
         general {
@@ -260,6 +260,7 @@
         
         # Example special workspace (scratchpad)
         bind = $mainMod, S, togglespecialworkspace, obsidian
+        bind = $mainMod, D, togglespecialworkspace, discord
         bind = $mainMod, A, togglespecialworkspace, magic
         bind = $mainMod SHIFT, A, movetoworkspace, special:magic
         
@@ -275,10 +276,13 @@
 	bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 	bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
-        # hyprshot
-        bind = $mainMod, PRINT, exec, hyprshot -m window --clipboard-only --freeze
-        bind = , PRINT, exec, hyprshot -m output --clipboard-only --freeze
-        bind = $shiftMod, PRINT, exec, hyprshot -m region --clipboard-only --freeze
+        # flameshot
+        bind = $mainMod, H, exec, flameshot gui
+
+#        # hyprshot
+#        bind = $mainMod, PRINT, exec, hyprshot -m window --clipboard-only --freeze
+#        bind = , PRINT, exec, hyprshot -m output --clipboard-only --freeze
+#        bind = $shiftMod, PRINT, exec, hyprshot -m region --clipboard-only --freeze
       '';
 
      

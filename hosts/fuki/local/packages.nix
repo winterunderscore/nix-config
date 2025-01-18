@@ -3,6 +3,7 @@
     scrcpy
     wireshark
     autokey
+    pavucontrol
   ];
 
   programs.ydotool = {

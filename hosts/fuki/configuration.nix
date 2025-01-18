@@ -9,6 +9,7 @@
     modules = inputs.self.nixosModules;
   in [
       # ./local/nvidia.nix # hyprland isn't liking it right now
+      ./local/powermanagement.nix
       ./local/packages.nix
 
       modules.kitty
@@ -19,6 +20,7 @@
       modules.yazi
       modules.obsidian
       modules.hyprland
+      modules.flameshot
       modules.anki
       modules.fcitx5
       modules.bitwarden
@@ -71,7 +73,7 @@
   users.users.winter = {
     isNormalUser = true;
     description = "winter";
-    extraGroups = [ "networkmanager" "wheel" "ydotool" ];
+    extraGroups = [ "audio" "networkmanager" "wheel" "ydotool" ];
     packages = with pkgs; [];
   };
 
