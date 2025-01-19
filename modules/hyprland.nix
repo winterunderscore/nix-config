@@ -72,10 +72,10 @@
       splash = false;
       splash_offset = 2.0;
 
-      preload = [ "~/nix/files/cat.png" ];
+      preload = [ (builtins.toString ../files/cat.png) ];
 
       wallpaper = [
-        "LVDS-1, ~/nix/files/cat.png"
+        ("LVDS-1, " + builtins.toString ../files/cat.png)
       ];
     };
   };
