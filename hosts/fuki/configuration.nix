@@ -20,7 +20,7 @@
       modules.yazi
       modules.obsidian
       modules.hyprland
-      modules.flameshot
+#      modules.flameshot
       modules.anki
       modules.fcitx5
       modules.bitwarden

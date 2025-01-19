@@ -276,13 +276,13 @@
 	bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 	bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
-        # flameshot
-        bind = $mainMod, H, exec, flameshot gui
+#        # flameshot
+#        bind = $mainMod, H, exec, flameshot gui
 
-#        # hyprshot
-#        bind = $mainMod, PRINT, exec, hyprshot -m window --clipboard-only --freeze
-#        bind = , PRINT, exec, hyprshot -m output --clipboard-only --freeze
-#        bind = $shiftMod, PRINT, exec, hyprshot -m region --clipboard-only --freeze
+        # hyprshot
+        bind = $mainMod, PRINT, exec, hyprshot -m window --clipboard-only --freeze
+        bind = , PRINT, exec, hyprshot -m output --clipboard-only --freeze
+        bind = $shiftMod, PRINT, exec, hyprshot -m region --clipboard-only --freeze
       '';
 
      
