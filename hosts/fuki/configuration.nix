@@ -8,13 +8,15 @@
   imports = let
     modules = inputs.self.nixosModules;
   in [
-      # ./local/nvidia.nix # hyprland isn't liking it right now
+#      ./local/nvidia.nix # hyprland isn't liking it right now
+      ./local/nonvidia.nix
       ./local/powermanagement.nix
       ./local/packages.nix
+      ./local/stylix.nix
 
       modules.kitty
       modules.neovim
-      modules.zellij
+#      modules.zellij
       modules.cli
 
       modules.yazi

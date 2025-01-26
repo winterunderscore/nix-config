@@ -1,8 +1,8 @@
 { pkgs, ... }: let 
-  theme = pkgs.fetchurl {
-    url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css";
-    sha256 = "sha256-0TnWkE/ndOYufghl0+aiMy68twozVoAaTbOF9dD6224=";
-  };
+#  theme = pkgs.fetchurl {
+#    url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css";
+#    sha256 = "sha256-0TnWkE/ndOYufghl0+aiMy68twozVoAaTbOF9dD6224=";
+#  };
 in {
   home-manager.users.winter.programs.nixcord = {
     enable = true;
@@ -14,7 +14,7 @@ in {
       transparent = true;
       frameless = true;
 
-      enabledThemes = [ "theme.css" ];
+#      enabledThemes = [ "theme.css" ];
 
       plugins = {
         messageLogger = {
@@ -38,5 +38,5 @@ in {
       };
     };
   };
-  home-manager.users.winter.xdg.configFile."vesktop/themes/theme.css".source = theme;
+#  home-manager.users.winter.xdg.configFile."vesktop/themes/theme.css".source = theme;
 }

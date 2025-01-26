@@ -14,6 +14,7 @@
     };
 
     nixcord.url = "github:kaylorben/nixcord";
+    stylix.url = "github:danth/stylix";
     hosts.url = "github:StevenBlack/hosts";
   };
 
@@ -22,6 +23,7 @@
     nixpkgs, 
     home-manager, 
     nixos-wsl, 
+    stylix,
     hosts,
     ... 
   } @ inputs: let 
