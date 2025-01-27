@@ -32,6 +32,7 @@
 	presence-nvim.enable = true;
         lualine.enable = true;
         nvim-surround.enable = true;
+        sleuth.enable = true;
       };
 
 #      colorschemes.catppuccin = {
