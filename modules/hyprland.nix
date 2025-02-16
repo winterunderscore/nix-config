@@ -102,6 +102,7 @@
 	exec-once = hyprsunset
 	exec-once = hyprpaper
         exec-once = waybar
+        exec-once = wayvnc
 
         exec-once = [workspace special:obsidian silent] obsidian
         exec-once = [workspace special:discord silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
@@ -507,6 +508,7 @@
     hyprsunset
     hyprutils
     wl-clipboard
+    wayvnc
 
     mako
   ]; 

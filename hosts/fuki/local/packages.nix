@@ -4,6 +4,12 @@
     wireshark
     autokey
     pavucontrol
+    obs-studio
+    gnome-pomodoro
+    qbittorrent
+    libreoffice-qt
+    gimp
+    calibre
   ];
 
   programs.ydotool = {
