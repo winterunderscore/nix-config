@@ -1,4 +1,6 @@
-{ ... }: {
+{ config, ... }: let 
+  hostname = "saba";
+in {
   services.homepage-dashboard = {
     enable = true;
     openFirewall = true;
@@ -23,13 +25,13 @@
           {
             "Jellyfin" = {
               description = "media server";
-              href = "http://saba:8096/";
+              href = "http://${hostname}:8096/";
             };
           }
           {
             "qBittorrent" = {
               description = "technically-not-multimedia but torrenting client";
-              href = "http://saba:58080/";
+              href = "http://${hostname}:${builtins.toString config.services.qbittorrent.port}/";
             };
           }
         ];
@@ -39,7 +41,7 @@
           {
             "SilverBullet" = {
               description = "note-taking";
-              href = "http://saba:3000";
+              href = "http://${hostname}:${builtins.toString config.services.silverbullet.listenPort}/";
             };
           }
         ];

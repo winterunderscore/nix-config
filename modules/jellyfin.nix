@@ -4,6 +4,10 @@
     openFirewall = true;
   };
 
+  /*
+   * not worky
+   *
+
   services.sonarr = {
     enable = true;
     openFirewall = true;
@@ -30,6 +34,8 @@
     "dotnet-sdk-6.0.428"
     "dotnet-sdk-wrapped-6.0.428"
   ];
+
+  */
 
   environment.systemPackages = with pkgs; [
     jellyfin
