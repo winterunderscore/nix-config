@@ -8,31 +8,25 @@
   imports = let
     modules = inputs.self.nixosModules;
   in [
-#      ./local/nvidia.nix # hyprland isn't liking it right now
-      ./local/nonvidia.nix
       ./local/powermanagement.nix
       ./local/packages.nix
       ./local/stylix.nix
 
-      modules.kitty
       modules.neovim
       modules.cli
 
       modules.yazi
-      modules.obsidian
-      modules.hyprland
-#      modules.flameshot
-      modules.anki
-      modules.fcitx5
       modules.bitwarden
-      modules.flatpak
       modules.fastfetch
-      modules.mpv
-      modules.remote-desktop
-      modules.localsend
-      modules.nixcord
-      modules.tabletdriver
-      
+
+      modules.tailscale
+      modules.jellyfin
+      #modules.trilium
+      modules.silverbullet
+      modules.qbittorrent
+      ./local/homepage.nix
+      ./local/minecraft.nix
+
       ./hardware-configuration.nix
     ];
 
@@ -40,7 +34,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "fuki"; # Define your hostname.
+  networking.hostName = "saba"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
@@ -57,23 +51,23 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    jack.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  # hardware.pulseaudio.enable = false;
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   jack.enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  # };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   users.users.winter = {
     isNormalUser = true;
     description = "winter";
-    extraGroups = [ "audio" "networkmanager" "wheel" "ydotool" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
 

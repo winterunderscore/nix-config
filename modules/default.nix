@@ -18,4 +18,9 @@
   tabletdriver = import ./tabletdriver.nix;
   zellij = import ./zellij.nix;
   flameshot = import ./flameshot.nix;
+  jellyfin = import ./jellyfin.nix;
+  tailscale = import ./tailscale.nix;
+  trilium = import ./trilium.nix;
+  silverbullet = import ./silverbullet.nix;
+  qbittorrent = import ./qbittorrent.nix;
 }

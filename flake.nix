@@ -16,6 +16,7 @@
     nixcord.url = "github:kaylorben/nixcord";
     stylix.url = "github:danth/stylix";
     hosts.url = "github:StevenBlack/hosts";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { 
@@ -54,6 +55,20 @@
               blockGambling = true;
             };
           }
+        ];
+      };
+      saba = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [
+          ./hosts/saba/configuration.nix
+          inputs.home-manager.nixosModules.default
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+            home-manager.sharedModules = [
+	      inputs.nixvim.homeManagerModules.nixvim
+	    ];
+	  }
         ];
       };
     };  
