@@ -5,5 +5,6 @@
     enable = true;
     openFirewall = true;
     port = 58080;
+    group = "multimedia";
   };
 }

@@ -48,21 +48,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  # hardware.pulseaudio.enable = false;
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   jack.enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  # };
-
-  # Install firefox.
-  # programs.firefox.enable = true;
+  #services.printing.enable = true;
 
   users.users.winter = {
     isNormalUser = true;
