@@ -23,4 +23,8 @@
   trilium = import ./trilium.nix;
   silverbullet = import ./silverbullet.nix;
   qbittorrent = import ./qbittorrent.nix;
+  calibre-web = import ./calibre-web.nix;
+  syncthing = import ./syncthing.nix;
+  harsh = import ./harsh.nix;
+  kavita = import ./kavita.nix;
 }

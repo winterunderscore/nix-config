@@ -13,10 +13,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixcord.url = "github:kaylorben/nixcord";
     stylix.url = "github:danth/stylix";
     hosts.url = "github:StevenBlack/hosts";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
   };
 
   outputs = { 
@@ -57,10 +63,10 @@
           }
         ];
       };
-      saba = nixpkgs.lib.nixosSystem {
+      mackerel = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
-          ./hosts/saba/configuration.nix
+          ./hosts/mackerel/configuration.nix
           inputs.home-manager.nixosModules.default
 	  {
 	    home-manager.useGlobalPkgs = true;

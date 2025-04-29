@@ -34,13 +34,6 @@
         nvim-surround.enable = true;
         sleuth.enable = true;
       };
-
-#      colorschemes.catppuccin = {
-#        enable = true;
-#        settings = {
-#          flavour = "mocha";
-#        };
-#      };
     };
   };
 }
