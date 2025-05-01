@@ -22,7 +22,7 @@
     stylix.url = "github:danth/stylix";
     hosts.url = "github:StevenBlack/hosts";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = { 
@@ -71,9 +71,6 @@
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
-            home-manager.sharedModules = [
-	      inputs.nixvim.homeManagerModules.nixvim
-	    ];
 	  }
         ];
       };

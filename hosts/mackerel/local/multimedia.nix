@@ -20,25 +20,11 @@
     "dotnet-sdk-wrapped-6.0.428"
   ];
 
-  /*
-   * not worky
-   *
-
-  services.rtorrent = {
+  services.jackett = {
     enable = true;
-    port = 51412;
     openFirewall = true;
+    group = "multimedia";
   };
-
-  services.flood = {
-    enable = true;
-    port = 8112;
-    openFirewall = true;
-    extraArgs = ["--rtsocket=${config.services.rtorrent.rpcSocket}"];
-  };
-
-  systemd.services.flood.serviceConfig.SupplementaryGroups = [ config.services.rtorrent.group ];
-  */
 
   environment.systemPackages = with pkgs; [
     jellyfin

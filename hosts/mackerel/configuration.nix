@@ -12,7 +12,7 @@
       ./local/packages.nix
       ./local/stylix.nix
 
-      modules.neovim
+      modules.nvf
       modules.cli
 
       modules.yazi
@@ -22,9 +22,7 @@
       modules.tmux
 
       modules.tailscale
-      modules.jellyfin
       modules.silverbullet
-      modules.qbittorrent
       modules.syncthing
       modules.kavita
       ./local/homepage.nix
@@ -32,6 +30,8 @@
       ./local/bots.nix
       ./local/sops.nix
       ./local/gitea.nix
+      ./local/multimedia.nix
+      ./local/qbittorrent.nix
 
       ./hardware-configuration.nix
     ];

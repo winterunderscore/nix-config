@@ -37,8 +37,13 @@ HOMEPAGE_ALLOWED_HOSTS=*
               widget = {
                 type = "jellyfin";
                 url = "http://${hostname}:8096";
-                key = "e68d1db0ae8e43b8b34b150193c70e66";
+                key = "e68d1db0ae8e43b8b34b150193c70e66"; #np
               };
+            };
+          }
+          {
+            "Sonarr" = {
+              href = "http://${hostname}:8989";
             };
           }
           {
@@ -48,7 +53,7 @@ HOMEPAGE_ALLOWED_HOSTS=*
                 type = "qbittorrent";
                 url = "http://${hostname}:${builtins.toString config.services.qbittorrent.port}";
                 username = "winter";
-                password = "suikazura";
+                password = "suikazura"; #very secure, especially since its not public on my github whatsoever. yeah
               };
             };
           }
@@ -59,7 +64,7 @@ HOMEPAGE_ALLOWED_HOSTS=*
                 type = "kavita";
                 url = "http://${hostname}:${builtins.toString config.services.kavita.settings.Port}";
                 username = "winter";
-                password = "suikazura";
+                password = "suikazura"; #will have to get rid of these at some point
               };
             };
           }
@@ -68,9 +73,14 @@ HOMEPAGE_ALLOWED_HOSTS=*
       {
         "Productivity" = [
           {
+            "Gitea" = {
+              href = "http://${hostname}:${builtins.toString config.services.gitea.settings.server.HTTP_PORT}";
+            };
+          }
+          {
             "SilverBullet" = {
               description = "note-taking";
-              href = "http://${hostname}:${builtins.toString config.services.silverbullet.listenPort}/";
+              href = "http://${hostname}:${builtins.toString config.services.silverbullet.listenPort}";
             };
           }
         ];

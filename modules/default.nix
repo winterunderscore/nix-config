@@ -1,5 +1,5 @@
 {
-  neovim = import ./neovim.nix;
+  nixvim = import ./nixvim.nix;
   tmux = import ./tmux.nix;
   yazi = import ./yazi.nix;
   kitty = import ./kitty.nix;
@@ -18,13 +18,12 @@
   tabletdriver = import ./tabletdriver.nix;
   zellij = import ./zellij.nix;
   flameshot = import ./flameshot.nix;
-  jellyfin = import ./jellyfin.nix;
   tailscale = import ./tailscale.nix;
   trilium = import ./trilium.nix;
   silverbullet = import ./silverbullet.nix;
-  qbittorrent = import ./qbittorrent.nix;
   calibre-web = import ./calibre-web.nix;
   syncthing = import ./syncthing.nix;
   harsh = import ./harsh.nix;
   kavita = import ./kavita.nix;
+  nvf = import ./nvf.nix;
 }
