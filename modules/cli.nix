@@ -36,10 +36,6 @@
       enableFishIntegration = true;
       colors = "always";
     };
-    thefuck = {
-      enable = true;
-      enableFishIntegration = true;
-    };
   };
 
   environment.systemPackages = with pkgs; [

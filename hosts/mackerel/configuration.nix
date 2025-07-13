@@ -21,6 +21,9 @@
       modules.harsh
       modules.tmux
 
+      modules.cc
+      modules.rust
+
       modules.tailscale
       modules.silverbullet
       modules.syncthing
@@ -33,6 +36,7 @@
       ./local/multimedia.nix
       ./local/qbittorrent.nix
 
+      ./local/graphics.nix
       ./hardware-configuration.nix
     ];
 
@@ -45,6 +49,14 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  services.logind.lidSwitchExternalPower = "ignore";
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no 
+    AllowHibernation=no 
+    AllowHybridSleep=no 
+    AllowSuspendThenHibernate=no
+    '';
 
   # Set your time zone.
   time.timeZone = "Asia/Manila";

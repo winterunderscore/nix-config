@@ -26,4 +26,6 @@
   harsh = import ./harsh.nix;
   kavita = import ./kavita.nix;
   nvf = import ./nvf.nix;
+  rust = import ./rust.nix;
+  cc = import ./cc.nix;
 }

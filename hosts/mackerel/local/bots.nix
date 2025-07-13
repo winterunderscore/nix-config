@@ -6,7 +6,7 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.nodejs_23}/bin/node index.js";
+      ExecStart = "${pkgs.nodejs_24}/bin/node index.js";
       WorkingDirectory = "/home/winter/bots/kozinteki";
       StandardOutput = "inherit";
       StandardError = "inherit";

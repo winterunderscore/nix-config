@@ -7,6 +7,24 @@
     group = "multimedia";
   };
 
+  services.navidrome = {
+    enable = true;
+    openFirewall = true;
+    group = "multimedia";
+    settings = {
+      Address = "0.0.0.0";
+      PID = {
+        Album = "folder";
+      };
+    };
+  };
+
+  services.lidarr = {
+    enable = true;
+    openFirewall = true;
+    group = "multimedia";
+  };
+
   services.sonarr = {
     enable = true;
     openFirewall = true;
@@ -20,10 +38,21 @@
     "dotnet-sdk-wrapped-6.0.428"
   ];
 
+  services.radarr = {
+    enable = true;
+    openFirewall = true;
+    group = "multimedia";
+  };
+
   services.jackett = {
     enable = true;
     openFirewall = true;
     group = "multimedia";
+  };
+  
+  services.prowlarr = {
+    enable = true;
+    openFirewall = true;
   };
 
   environment.systemPackages = with pkgs; [
