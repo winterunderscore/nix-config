@@ -79,6 +79,19 @@
 	  }
         ];
       };
+      oto = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/oto/configuration.nix
+          inputs.nixos-wsl.nixosModules.default
+          inputs.home-manager.nixosModules.default
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	  }
+        ];
+      };
     };  
   };
 }
